@@ -11,9 +11,9 @@ This project contains two Java scripts designed for creating and modifying game 
 - Saves the refined level as an image for visualization.
   
   Input:
-  <img src="Noise.png" width="100" height="100">
+  <img src="Noise.png" width="700" height="2400">
   Output:
-  ![image](output.png)
+  <img src="output.png" width="700" height="2400">
 
 ### `LevelCreate2.java`
 
@@ -21,4 +21,4 @@ This project contains two Java scripts designed for creating and modifying game 
 - Places and rotates these shapes randomly across the level grid without overlaps.
 - Visualizes the generated level as an image.
   
-  ![image](level_image.png)
+  <img src="level_image.png" width="700" height="4800">
