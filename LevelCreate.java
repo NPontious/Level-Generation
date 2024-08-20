@@ -7,22 +7,10 @@ import javax.imageio.ImageIO;
 class LevelCreate{
     public static int[][] level;
     public static void main(String[] args) {
-        // for(int i = 0; i < level[0].length; i++){
-        //     for(int j = 0; j < level.length; j++){
-        //         level[j][i] = 0;
-        //     }
-        // }
         readImage();
         cullSingle();
         cutWeirdShapes();
         cullSingle();
-        // cutWeirdShapes();
-        // for(int i = 0; i < level[0].length; i++){
-        //     for(int j = 0; j < level.length; j++){
-        //         System.out.print(level[j][i]);
-        //     }
-        //     System.out.println();
-        // }
         saveArrayAsPNG(level, "output.png");
     }
 
@@ -35,10 +23,6 @@ class LevelCreate{
             BufferedImage image = ImageIO.read(file);
 
             level = new int[image.getWidth()][image.getHeight()];
-            
-            // Print image dimensions
-            //System.out.println("Width: " + image.getWidth());
-            //System.out.println("Height: " + image.getHeight());
             
             // Access pixel data
             for (int y = 0; y < image.getHeight(); y++) {
@@ -55,7 +39,7 @@ class LevelCreate{
                 }
             }
         } catch (IOException e) {
-            //e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
