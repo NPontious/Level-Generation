@@ -71,7 +71,7 @@ public class LevelCreate2 {
         shapes.add(bigCorner);
         shapes.add(bShape);
         Random rand = new Random();
-        int numOfShapes = 20;
+        int numOfShapes = level.length *  level[0].length / 50;
 
         for (int i = 0; i < numOfShapes; i++) {
             int shapeIndex = rand.nextInt(shapes.size());
@@ -165,7 +165,10 @@ public class LevelCreate2 {
     }
 
     private static Color getColorFromValue(int value) {
-        switch (value % 10) {
+        if(value == 0){
+            return Color.BLACK;
+        }
+        switch ((value % 10) + 1) {
             case 1:
                 return Color.RED;
             case 2:
