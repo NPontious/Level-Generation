@@ -11,7 +11,7 @@ This project contains two Java scripts designed for creating and modifying game 
 - Saves the refined level as an image for visualization.
   
   Input:
-  ![image](Noise.png)
+  ![image](Noise.png = 20x)
   Output:
   ![image](output.png)
 
