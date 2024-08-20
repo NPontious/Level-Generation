@@ -71,7 +71,7 @@ public class LevelCreate2 {
         shapes.add(bigCorner);
         shapes.add(bShape);
         Random rand = new Random();
-        int numOfShapes = level.length *  level[0].length / 50;
+        int numOfShapes = level.length *  level[0].length / 20;
 
         for (int i = 0; i < numOfShapes; i++) {
             int shapeIndex = rand.nextInt(shapes.size());
