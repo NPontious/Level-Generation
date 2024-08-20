@@ -58,7 +58,7 @@ public class LevelCreate2 {
         {1,1}
     };
     public static ArrayList<int[][]> shapes = new ArrayList<>();
-    public static int[][] level = new int[7][48];
+    public static int[][] level = new int[100][100];
     public static void main(String[] args) {
         shapes.add(zig);
         shapes.add(bigZig);
