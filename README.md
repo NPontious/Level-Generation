@@ -9,6 +9,7 @@ This project contains two Java scripts designed for creating and modifying game 
 - Reads an image (noise texture on black backgroind) and converts it into a 2D array representing the level.
 - Simplifies the level by removing isolated pixels and small disconnected segments.
 - Saves the refined level as an image for visualization.
+  
   Input:
   ![image](Noise.png)
   Output:
@@ -19,4 +20,5 @@ This project contains two Java scripts designed for creating and modifying game 
 - Defines several shapes for level construction.
 - Places and rotates these shapes randomly across the level grid without overlaps.
 - Visualizes the generated level as an image.
+  
   ![image](level_image.png)
