@@ -1,7 +1,6 @@
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 
 class LevelCreate{
@@ -196,7 +195,7 @@ class LevelCreate{
     public static void shatterWeirdShapes(){
         for(int i = 1; i < level.length - 1; i++){
             for(int j = 1; j < level[0].length - 1; j++){
-                if(j - 1 >= 0 && level[j - 1][i] != level[j][i]){
+                if(level[j - 1][i] != level[j][i]){
                     if(level[j - 1][i] != 0){
                         level[j - 1][i] = level[j][i];
                         shapeColor(i, j - 1);
@@ -208,7 +207,7 @@ class LevelCreate{
                         shapeColor(i, j + 1);
                     }
                 }
-                if(i - 1 >= 0 && level[j][i - 1] != level[j][i]){
+                if(level[j][i - 1] != level[j][i]){
                     if(level[j][i - 1] != 0){
                         level[j][i - 1] = level[j][i];
                         shapeColor(i - 1, j);
@@ -224,7 +223,7 @@ class LevelCreate{
         }
     }
 
-    //Debuging method
+    //Debugging method
     public static void printColor(int x, int y){
         int red;
         int green;
