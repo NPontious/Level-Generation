@@ -68,6 +68,7 @@ class LevelCreate{
     }
 
     public static void cullSingle(){
+        // Check the middle elements
         for(int i = 1; i < level[0].length - 1; i++){
             for(int j = 1; j < level.length - 1; j++){
                 if(level[j - 1][i] == 0 && level[j + 1][i] == 0 && level[j][i - 1] == 0 && level[j][i + 1] == 0 && level[j][i] != 0){
@@ -77,6 +78,7 @@ class LevelCreate{
                 }
             }
         }
+        //Check the borders
         for(int j = 1; j < level.length - 1; j++){
             if(level[j - 1][0] == 0 && level[j + 1][0] == 0 && level[j][0] != 0){
                 level[j][0] = 0;
@@ -101,7 +103,7 @@ class LevelCreate{
                 shapeColor(i, level.length - 1);
             }
         }
-        
+        //Check the corners
         if(level[0][1] == 0 && level[1][0] == 0 && level[0][0] != 0){
             level[0][0] = 0;
         } else if(level[0][0] != 0) {
@@ -124,6 +126,7 @@ class LevelCreate{
         }
     }
 
+    //Recursive function to change all clusters to the same color
     public static void shapeColor(int i, int j){
         if(j - 1 >= 0 && level[j - 1][i] != level[j][i]){
             if(level[j - 1][i] != 0){
@@ -151,6 +154,7 @@ class LevelCreate{
         }
     }
 
+    //Breaks apart larger shapes
     public static void cutWeirdShapes(){
         int offences = 0;
         for(int i = 1; i < level[0].length - 1; i++){
@@ -188,6 +192,7 @@ class LevelCreate{
         }
     }
 
+    //Breaks apart larger shapes
     public static void shatterWeirdShapes(){
         for(int i = 1; i < level.length - 1; i++){
             for(int j = 1; j < level[0].length - 1; j++){
@@ -219,6 +224,7 @@ class LevelCreate{
         }
     }
 
+    //Debuging method
     public static void printColor(int x, int y){
         int red;
         int green;

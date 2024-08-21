@@ -77,7 +77,7 @@ public class LevelCreate2 {
             int shapeIndex = rand.nextInt(shapes.size());
             int[][] shape = shapes.get(shapeIndex);
 
-            // Randomize rotation (0, 1, 2, or 3 times 90 degrees)
+            // Randomize rotation
             int rotations = rand.nextInt(4);
             for (int r = 0; r < rotations; r++) {
                 shape = rotateShape(shape);
@@ -148,6 +148,7 @@ public class LevelCreate2 {
         }
     }
 
+    //Prints out the array as an image
     public static void drawLevelAsImage() throws IOException {
         BufferedImage image = new BufferedImage(level.length, level[0].length, BufferedImage.TYPE_INT_RGB);
         Graphics g = image.getGraphics();
@@ -164,6 +165,7 @@ public class LevelCreate2 {
         ImageIO.write(image, "png", outputFile);
     }
 
+    //Maps number to a color
     private static Color getColorFromValue(int value) {
         if(value == 0){
             return Color.BLACK;
