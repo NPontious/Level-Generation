@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Level Generator | A Java Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-900 text-slate-300">
+
+    <nav class="bg-slate-900/70 backdrop-blur-md sticky top-0 z-50 border-b border-slate-700">
+        <div class="container mx-auto max-w-6xl px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold tracking-wider text-white font-mono">LevelGenerator</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#methods" class="nav-link">Methods</a>
+                    <a href="#run" class="nav-link">How to Run</a>
+                    <a href="https://github.com/NPontious/level-generation" target="_blank" rel="noopener noreferrer" class="bg-cyan-500 text-slate-900 px-5 py-2 rounded-md hover:bg-cyan-400 transition-all shadow-md flex items-center space-x-2 font-semibold">
+                        <i class="fab fa-github"></i>
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto max-w-6xl p-4 sm:p-6 lg:p-8">
+
+        <header id="about" class="py-16 md:py-24 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight font-mono tracking-wide">
+                    Procedural Level Generation in Java.
+                </h1>
+                <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">
+                    A collection of Java scripts designed to create and modify 2D game levels using two distinct procedural generation techniques.
+                </p>
+                <div class="mt-10">
+                    <img src="level_image.png" alt="Generated Level from Shapes" class="pixelated rounded-lg shadow-2xl mx-auto border-4 border-slate-700">
+                </div>
+            </div>
+        </header>
+
+        <section id="methods" class="py-16">
+            <h2 class="section-title text-center mx-auto mb-12">Two Methods of Generation</h2>
+            <div class="space-y-16">
+
+                <div class="bg-slate-800 p-8 rounded-lg shadow-lg grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white font-mono">1. Noise Culling & Refinement</h3>
+                        <p class="mt-4 text-slate-400">This method, found in <code class="code-tag">LevelCreate.java</code>, starts with a random noise image. It then intelligently processes the image to remove isolated "stray" pixels and simplify complex clusters, resulting in more organic, cave-like structures.</p>
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-white mb-2">Key Steps:</h4>
+                            <ul class="list-disc list-inside text-slate-400 space-y-1">
+                                <li>Reads pixel data from an input noise image.</li>
+                                <li>Scans and removes pixels that have no neighbors.</li>
+                                <li>Colors connected pixel clusters uniformly.</li>
+                                <li>Saves the result as a new PNG file.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-center font-semibold text-white mb-4">Input vs. Output</h4>
+                        <div class="flex justify-center gap-4">
+                            <img src="Noise.png" alt="Input Noise Image" class="pixelated w-1/2 rounded-md border-2 border-slate-600">
+                            <img src="output.png" alt="Output after Culling" class="pixelated w-1/2 rounded-md border-2 border-slate-600">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-lg shadow-lg grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white font-mono">2. Shape-Based Construction</h3>
+                        <p class="mt-4 text-slate-400">The second method, implemented in <code class="code-tag">LevelCreate2.java</code>, acts like a generative art tool. It uses a predefined library of shapes (like L-shapes, lines, and corners) and randomly places them onto a grid until the level is populated, ensuring no shapes overlap.</p>
+                        <div class="mt-6">
+                             <h4 class="font-semibold text-white mb-2">Key Steps:</h4>
+                            <ul class="list-disc list-inside text-slate-400 space-y-1">
+                                <li>Defines a collection of 2D array shapes.</li>
+                                <li>Randomly selects, rotates, and places shapes.</li>
+                                <li>Performs collision detection to prevent overlaps.</li>
+                                <li>Assigns a unique color to each shape placed.</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div>
+                        <h4 class="text-center font-semibold text-white mb-4">Example Output</h4>
+                        <img src="level_image.png" alt="Generated Level from Shapes" class="pixelated w-full rounded-md border-2 border-slate-600 mx-auto">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="run" class="py-16">
+            <h2 class="section-title text-center mx-auto mb-10">How to Run the Scripts</h2>
+            <div class="max-w-3xl mx-auto bg-slate-800 p-10 rounded-lg shadow-xl text-center">
+                 <p class="text-slate-400 mb-8">You can easily run these scripts yourself to generate new levels. You'll need a Java Development Kit (JDK) installed.</p>
+                <ol class="space-y-4 text-left inline-block">
+                    <li class="flex items-start space-x-3"><span class="font-mono text-cyan-400">1.</span><span><strong>Clone the Repository:</strong> Get the source code from GitHub.</span></li>
+                    <li class="flex items-start space-x-3"><span class="font-mono text-cyan-400">2.</span><span><strong>Navigate to Directory:</strong> Open a terminal and `cd` into the project folder.</span></li>
+                    <li class="flex items-start space-x-3"><span class="font-mono text-cyan-400">3.</span><span><strong>Compile & Run:</strong> Use the `javac` and `java` commands to run either script.</span></li>
+                </ol>
+                <div class="mt-8 text-left bg-slate-900 p-4 rounded-md font-mono text-sm">
+                    <span class="text-gray-500"># To run the Noise Culling script</span><br>
+                    <span class="text-cyan-400">javac</span> LevelCreate.java<br>
+                    <span class="text-cyan-400">java</span> LevelCreate<br><br>
+                    <span class="text-gray-500"># To run the Shape-Based script</span><br>
+                     <span class="text-cyan-400">javac</span> LevelCreate2.java<br>
+                    <span class="text-cyan-400">java</span> LevelCreate2
+                </div>
+            </div>
+        </section>
+        
+        <footer class="text-center mt-16 py-6 border-t border-slate-700">
+            <p class="text-slate-500">A project by Nicholas Pontious. Built with Java.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
